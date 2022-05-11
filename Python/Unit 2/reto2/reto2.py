@@ -1,9 +1,9 @@
-informacion = {"id_cliente" : 1, "nombre" : "", "edad" : 18, "primer_ingreso" : True}   
+informacion = {"id_cliente" : 1, "nombre" : "", "edad" : "a", "primer_ingreso" : True}   
 
 def cliente (informacion:dict)->dict:
     nombre = informacion['nombre']
-    edad = informacion['edad']
-    primer_ingreso = informacion['primer_ingreso']
+    edad = int(informacion['edad'])
+    primer_ingreso = bool(informacion['primer_ingreso'])
     apto = True
     if edad > 18:
         atraccion = "X-Treme"
@@ -20,7 +20,7 @@ def cliente (informacion:dict)->dict:
         total_boleta = 10000
         if primer_ingreso:
             total_boleta -= (10000*0.05)
-    if edad < 7:
+    if edad < 7 and edad >=0:
         total_boleta ="N/A" 
         apto= False  
         atraccion = "N/A"                                                           
