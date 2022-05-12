@@ -7,10 +7,8 @@ de 1 al valor introducido y el resultado de aplicar la función a esos enteros.
 """
 #libreria de python con todo el tema de operacione matematicas "math.pyi"
 #import math
-
 from math import sin, cos, tan, exp, log
-
-def calculadora(f, n):
+def calculadora(f:str, n:int):
 #creacion diccionario    
     funciones  = {
         "seno" : sin,
@@ -19,4 +17,15 @@ def calculadora(f, n):
         "exponencial": exp,
         "log" : log
     }
-    var = funciones["coseno"]
+    resultado = dict()
+    operacion = funciones[f]
+    for i in range(1,n+1):
+        resultado[i] = operacion(i)
+    return resultado    
+
+def main():
+    f = input("Digite la operacion a realizar (seno, coseno, tangente, exponencial, log): ")
+    n = int(input("Ingrese un numero entero positivo: "))
+    print(calculadora(f,n))
+    
+main()    
